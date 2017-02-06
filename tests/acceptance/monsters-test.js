@@ -22,6 +22,12 @@ test('visiting /monsters', function(assert) {
     assert.equal(find('.computed-health-test').text(), 'Remaining: 7', 'displays computedHealth');
   });
 
+  click('.monster-edit-test');
+
+  andThen(function(){
+    assert.equal(currentURL(), '/monsters/1/edit', 'redirects to correct URL');
+  });
+
   visit('/monsters');
 
   click('.monster-new-test');
