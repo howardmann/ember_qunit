@@ -14,5 +14,11 @@ export default Ember.Service.extend({
   },
   getMonster(id){
     return this.getMonsters().findBy('id', id);
+  },
+  createMonster(data){
+    let monster = Monster.create(data);
+    monster.set('id', monsters.length + 1);
+    monsters.pushObject(monster);
+    return monster;
   }
 });

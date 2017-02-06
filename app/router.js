@@ -11,6 +11,7 @@ Router.map(function() {
     this.route('monster', {
       path: ':monster_id'
     });
+    this.route('new');
   });
 });
 

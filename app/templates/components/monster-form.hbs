@@ -1,0 +1,21 @@
+<form {{action "save" model on="submit"}}>
+  <p class="form-name">
+    <label>Name:</label>
+    {{input type="text" value=model.name}}
+  </p>
+
+  <p class="form-health">
+    <label>Health:</label>
+    {{input type="number" value=model.health}}
+  </p>
+
+  <p class="form-damage">
+    <label>Damage:</label>
+    {{input type="number" value=model.damage}}
+  </p>
+
+  <p>
+    <input type="submit" class="button-submit">
+  </p>
+
+</form>
