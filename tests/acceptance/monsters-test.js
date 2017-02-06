@@ -57,3 +57,26 @@ test('visiting /monsters/new', function(assert) {
   });
 
 });
+
+test('visiting monsters/:id/edit', function(assert){
+  visit('/monsters/1/edit');
+
+  andThen(function(){
+    assert.equal(currentURL(), '/monsters/1/edit', 'displays correct URL');
+    assert.equal(find('h2').text(), 'EDIT Monster', 'renders EDIT Monster');
+    assert.equal(find('.form-name input').val(), 'pikachu', 'prepopulates input name');
+    assert.equal(find('.form-health input').val(), '10', 'prepopulates input health');
+    assert.equal(find('.form-damage input').val(), '3', 'prepopulates input damage');
+  });
+
+  fillIn('.form-name input', 'Raichu');
+  fillIn('.form-health input', 3);
+  fillIn('.form-damage input', 2);
+  click('input:submit');
+
+  andThen(function(){
+    assert.equal(currentURL(), '/monsters', 'redirects back to correct URL');
+    assert.equal(find('.name-test:first').text(), 'Name: Raichu', 'displays correct name for edited monster');
+  });
+
+});
