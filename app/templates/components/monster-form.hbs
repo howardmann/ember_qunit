@@ -14,6 +14,20 @@
     {{input type="number" value=model.damage}}
   </p>
 
+  <p class="form-planet">
+    <label>Planet:</label>
+    <select class="my-select">
+      {{#each planets as |planet|}}
+        {{#if (eq planet.name model.planet.name)}}
+          <option value="{{planet.id}}" selected>{{planet.name}}</option>
+        {{else}}
+          <option value="{{planet.id}}" >{{planet.name}}</option>
+
+        {{/if}}
+      {{/each}}
+    </select>
+  </p>
+
   <p>
     <input type="submit" class="button-submit">
   </p>

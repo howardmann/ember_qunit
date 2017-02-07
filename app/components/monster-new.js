@@ -4,7 +4,11 @@ export default Ember.Component.extend({
   newMonster: {},
   actions: {
     save(model){
-      this.get('store').createMonster(model);
+      let id = $('select option:selected').val();
+      let planet = this.get('store').getPlanets().findBy('id', parseInt(id));
+      let monster = this.get('store').createMonster(model);
+      monster.set('planet', planet);
+
       this.set('newMonster', {});
       this.get('router').transitionTo('monsters');
     }

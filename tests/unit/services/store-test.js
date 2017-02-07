@@ -5,11 +5,11 @@ moduleFor('service:store', 'Unit | Service | store', {
   // needs: ['service:foo']
 });
 
-test('getMonsters', function(assert) {
-  let service = this.subject();
-  assert.equal(service.getMonsters().length, 4, 'returns monsters');
-  assert.equal(service.getMonsters().get('firstObject').get('name'), 'pikachu', 'first monster name is correct');
-});
+// test('getMonsters', function(assert) {
+//   let service = this.subject();
+//   assert.equal(service.getMonsters().length, 4, 'returns monsters');
+//   assert.equal(service.getMonsters().get('firstObject').get('name'), 'pikachu', 'first monster name is correct');
+// });
 
 test('getMonster(id)', function(assert) {
   let service = this.subject();
@@ -26,4 +26,10 @@ test('createMonster(data)', function(assert) {
   assert.equal(newMonster.get('health'), 10, 'sets the health');
   assert.equal(newMonster.get('damage'), 2, 'sets the damage');
   assert.equal(newMonster.get('computedHealth'), 8, 'has computedHealth');
+});
+
+test('getPlanets', function(assert) {
+  let service = this.subject();
+  assert.equal(service.getPlanets().length, 3, 'returns planets');
+  assert.equal(service.getPlanets().get('firstObject').get('name'), 'earth', 'first planet name is correct');
 });
